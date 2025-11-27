@@ -4,38 +4,50 @@
 <meta name="google-adsense-account" content="ca-pub-2732222824974793">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2732222824974793" crossorigin="anonymous"></script>
 <style>
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  /* Ensure button ALWAYS appears above iframe */
   #buy-me-coffee {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     background: #fff;
-    padding: 10px;
+    padding: 12px 10px;
     text-align: center;
     font-family: sans-serif;
-    font-size: 18px;
+    font-size: 20px;
+    font-weight: bold;
     text-decoration: none;
     color: #000;
-    border-bottom: 1px solid #ddd;
-    z-index: 10001;
+    border-bottom: 2px solid #ccc;
+    z-index: 999999 !important;
   }
   .coffee-icon { margin-right: 6px; }
+
+  /* Push iframe fully below the button */
   #app-frame {
     position: fixed;
-    top: 50px; /* offset for button */
+    top: 65px; /* Ensures iframe never hides button */
     left: 0;
     width: 100vw;
-    height: calc(100vh - 140px); /* adjust for bottom ad */
+    height: calc(100vh - 165px); /* Adjust height for bottom ad */
     border: none;
-    z-index: 9999;
+    z-index: 1; /* Keep iframe below everything */
   }
+
+  /* Bottom ad stays visible */
   #bottom-ad {
     display:block;
     position:fixed;
     bottom:0;
     left:0;
     width:100%;
-    height:90px;
+    height:100px;
     z-index:10000;
     background:#fff;
   }
