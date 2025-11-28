@@ -3,80 +3,101 @@
 <head>
 <meta name="google-adsense-account" content="ca-pub-2732222824974793">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2732222824974793" crossorigin="anonymous"></script>
+
+<!-- Removed PayPal SDK script to prevent "Can not read window host" error in embedded environment -->
+
 <style>
-  body {
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-  }
+  body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+  }
 
-  /* Ensure button ALWAYS appears above iframe */
-  #buy-me-coffee {
+  /* Styles for the PayPal custom button and container */
+  #top-bar-container {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    background: #fff;
-    padding: 12px 10px;
-    text-align: center;
-    font-family: sans-serif;
-    font-size: 20px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #000;
-    border-bottom: 2px solid #ccc;
-    z-index: 999999 !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff; 
+    padding: 8px 10px; /* Reduced padding slightly to fit the button content better */
+    text-align: center;
+    border-bottom: 2px solid #ccc;
+    z-index: 999999 !important;
   }
-  .coffee-icon { margin-right: 6px; }
+  
+  /* Custom button styling provided by the user */
+  .pp-WJJ6B5X32N3RN{
+    text-align:center;
+    border:none;
+    border-radius:0.25rem;
+    min-width:11.625rem;
+    padding:0 2rem;
+    height:2.625rem;
+    font-weight:bold;
+    background-color:#FFD140; /* PayPal Yellow */
+    color:#000000;
+    font-family:"Helvetica Neue",Arial,sans-serif;
+    font-size:1rem;
+    line-height:1.25rem;
+    cursor:pointer;
+  }
 
-  /* Push iframe fully below the button */
-  #app-frame {
-    position: fixed;
-    top: 65px; /* Ensures iframe never hides button */
-    left: 0;
-    width: 100vw;
-    height: calc(100vh - 165px); /* Adjust height for bottom ad */
-    border: none;
-    z-index: 1; /* Keep iframe below everything */
-  }
+  /* Push iframe fully below the button (65px offset remains appropriate) */
+  #app-frame {
+    position: fixed;
+    top: 65px; /* Ensures iframe never hides button */
+    left: 0;
+    width: 100vw;
+    height: calc(100vh - 165px); /* Adjust height for top bar (65px) and bottom ad (100px) */
+    border: none;
+    z-index: 1; /* Keep iframe below everything */
+  }
 
-  /* Bottom ad stays visible */
-  #bottom-ad {
-    display:block;
-    position:fixed;
-    bottom:0;
-    left:0;
-    width:100%;
-    height:100px;
-    z-index:10000;
-    background:#fff;
-  }
+  /* Bottom ad stays visible */
+  #bottom-ad {
+    display:block;
+    position:fixed;
+    bottom:0;
+    left:0;
+    width:100%;
+    height:100px;
+    z-index:10000;
+    background:#fff;
+  }
 </style>
 </head>
 <body>
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2732222824974793" crossorigin="anonymous"></script>
 
-<a id="buy-me-coffee" href="https://www.paypal.com/sdk/js?client-id=BAAW7gEGlpF7Aji1DybkJy6A-WA3IDH88abVZ7BU6XzWTTBLZ_ndqt2CAG3HRG2yFdZxJyXQXKODWIXj10&components=hosted-buttons&disable-funding=venmo&currency=USD" target="_blank" rel="noopener noreferrer">
-  <span class="coffee-icon">☕</span> Show Support
-</a>
-  
+<!-- PayPal Custom Checkout Form - Replaces the previous link/button -->
+<div id="top-bar-container">
+  <form action="https://www.paypal.com/ncp/payment/WJJ6B5X32N3RN" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+    <input class="pp-WJJ6B5X32N3RN" type="submit" value="Show Support" />
+    <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
+    <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+  </form>
+</div>
+  
 <iframe
-  id="app-frame"
-  src="https://mood-ecosystem-565700298959.us-west1.run.app"
-  title="Mood Ecosystem Application"
+  id="app-frame"
+  src="https://mood-ecosystem-565700298959.us-west1.run.app"
+  title="Mood Ecosystem Application"
 >
-  Your browser does not support iframes.
+  Your browser does not support iframes.
 </iframe>
 
 <meta name="google-adsense-account" content="ca-pub-2732222824974793">
 
 <!-- Google Ad Unit -->
+<!-- Added inline style to ensure ad slot has explicit dimensions to fix "No slot size" error -->
 <ins id="bottom-ad" class="adsbygoogle"
-     data-ad-client="ca-pub-2732222824974793"
-     data-ad-slot="1234567890"
-     data-ad-format="horizontal"></ins>
+     style="display: block; width: 100%; height: 100px;"
+     data-ad-client="ca-pub-2732222824974793"
+     data-ad-slot="1234567890"
+     data-ad-format="horizontal"></ins>
 <script>
-  (adsbygoogle = window.adsbygoogle || []).push({});
+  (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 
 </body>
