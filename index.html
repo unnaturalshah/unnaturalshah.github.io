@@ -3,6 +3,7 @@
 <head>
 <meta name="google-adsense-account" content="ca-pub-2732222824974793">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2732222824974793" crossorigin="anonymous"></script>
+
 <style>
   body {
     margin: 0;
@@ -30,22 +31,22 @@
     font-weight: bold;
     text-decoration: none;
     color: #000;
-    padding: 8px 16px; /* Added padding to make the button look like the old link */
+    padding: 8px 16px; 
     cursor: pointer;
-    border: 1px solid #000; /* Example border */
+    border: 1px solid #000; 
     background-color: #f8f8f8;
   }
 
-  /* Push iframe fully below the new container. 
-     The height has been adjusted based on the new top-bar-container's height. */
+  /* Push iframe fully below the top container */
   #app-frame {
     position: fixed;
-    top: 100px; /* Adjusted height (was 65px) to accommodate the taller PayPal button/container */
+    top: 100px; 
     left: 0;
     width: 100vw;
-    height: calc(100vh - 200px); /* Adjusted height (was -165px) for top bar + bottom ad */
+    /* Height calculation adjusted to clear the top bar (100px) and the bottom ad (100px) */
+    height: calc(100vh - 200px); 
     border: none;
-    z-index: 1; /* Keep iframe below everything */
+    z-index: 1; 
   }
 
   /* Bottom ad stays visible */
@@ -62,7 +63,6 @@
 </style>
 </head>
 <body>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2732222824974793" crossorigin="anonymous"></script>
 
 <div id="top-bar-container">
   <form action="https://www.paypal.com/ncp/payment/WJJ6B5X32N3RN" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
@@ -83,7 +83,7 @@
 
 <ins id="bottom-ad" class="adsbygoogle"
       data-ad-client="ca-pub-2732222824974793"
-      data-ad-slot="1234567890"
+      data-ad-slot="1817046930"
       data-ad-format="horizontal"></ins>
 <script>
   (adsbygoogle = window.adsbygoogle || []).push({});
