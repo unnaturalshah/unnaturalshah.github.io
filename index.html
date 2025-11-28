@@ -4,11 +4,13 @@
 <meta name="google-adsense-account" content="ca-pub-2732222824974793">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2732222824974793" crossorigin="anonymous"></script>
 
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+
 <style>
   body {
     margin: 0;
     padding: 0;
-    overflow: hidden; /* Prevents double scrollbars from iframe/fixed elements */
+    overflow: hidden; 
   }
 
   /* --- Top Bar (PayPal) --- */
@@ -21,8 +23,7 @@
     padding: 12px 10px;
     text-align: center;
     border-bottom: 2px solid #ccc;
-    z-index: 999999; /* Ensure it's always on top */
-    /* Assuming 100px total height for top bar including padding/border */
+    z-index: 999999; 
   }
 
   /* Style for the submit button */
@@ -41,15 +42,21 @@
   /* --- Main Content Area (Iframe) --- */
   #app-frame {
     position: fixed;
-    top: 100px; /* Start below the 100px-high top bar */
+    top: 100px; 
     left: 0;
     width: 100vw;
-    /* Height calculation: 100vh - (Top Bar Height 100px) - (Bottom Ad Height 100px) = 200px total */
     height: calc(100vh - 200px); 
     border: none;
     z-index: 1; 
-  }
 
+    /* NEW: Zoom in the iframe content by 42% (100% + 42% = 142%) */
+    transform: scale(1.42);
+    /* Center the scaled content */
+    transform-origin: top left;
+    /* Hide content that scales outside the bounds */
+    overflow: hidden; 
+  }
+  
   /* --- AdSense Unit (Bottom) --- */
   #bottom-ad {
     display:block;
@@ -57,9 +64,9 @@
     bottom:0;
     left:0;
     width:100%;
-    height:100px; /* Adheres to standard mobile adhesion size */
-    z-index:10000; /* Ensure it sits above the iframe but below the top bar */
-    background:#fff; /* Background to prevent content showing through */
+    height:100px; 
+    z-index:10000; 
+    background:#fff; 
   }
 </style>
 </head>
