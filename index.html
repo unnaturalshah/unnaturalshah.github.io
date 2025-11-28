@@ -49,12 +49,14 @@
     border: none;
     z-index: 1; 
 
-    /* NEW: Zoom in the iframe content by 42% (100% + 42% = 142%) */
-    transform: scale(1.25);
-    /* Center the scaled content */
+    /* Scaling properties */
+    transform: scale(1.2);
     transform-origin: top left;
-    /* Hide content that scales outside the bounds */
     overflow: hidden; 
+
+    /* FIX: Negative margins to center the zoomed content */
+    margin-left: -21vw; 
+    margin-top: -5vh; 
   }
   
   /* --- AdSense Unit (Bottom) --- */
