@@ -8,10 +8,10 @@
   body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
+    overflow: hidden; /* Prevents double scrollbars from iframe/fixed elements */
   }
 
-  /* Container for the new PayPal button, ensuring it's always above iframe */
+  /* --- Top Bar (PayPal) --- */
   #top-bar-container {
     position: fixed;
     top: 0;
@@ -21,7 +21,8 @@
     padding: 12px 10px;
     text-align: center;
     border-bottom: 2px solid #ccc;
-    z-index: 999999 !important; /* Highest z-index */
+    z-index: 999999; /* Ensure it's always on top */
+    /* Assuming 100px total height for top bar including padding/border */
   }
 
   /* Style for the submit button */
@@ -37,28 +38,28 @@
     background-color: #f8f8f8;
   }
 
-  /* Push iframe fully below the top container */
+  /* --- Main Content Area (Iframe) --- */
   #app-frame {
     position: fixed;
-    top: 100px; 
+    top: 100px; /* Start below the 100px-high top bar */
     left: 0;
     width: 100vw;
-    /* Height calculation adjusted to clear the top bar (100px) and the bottom ad (100px) */
+    /* Height calculation: 100vh - (Top Bar Height 100px) - (Bottom Ad Height 100px) = 200px total */
     height: calc(100vh - 200px); 
     border: none;
     z-index: 1; 
   }
 
-  /* Bottom ad stays visible */
+  /* --- AdSense Unit (Bottom) --- */
   #bottom-ad {
     display:block;
     position:fixed;
     bottom:0;
     left:0;
     width:100%;
-    height:100px;
-    z-index:10000;
-    background:#fff;
+    height:100px; /* Adheres to standard mobile adhesion size */
+    z-index:10000; /* Ensure it sits above the iframe but below the top bar */
+    background:#fff; /* Background to prevent content showing through */
   }
 </style>
 </head>
@@ -71,6 +72,7 @@
     <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
   </form>
 </div>
+
 <iframe
   id="app-frame"
   src="https://mood-ecosystem-565700298959.us-west1.run.app"
@@ -79,7 +81,7 @@
   Your browser does not support iframes.
 </iframe>
 
-<meta name="google-adsense-account" content="ca-pub-2732222824974793">
+<meta name="google-adsense-account" content="ca-pub-2732222824974793"> 
 
 <ins id="bottom-ad" class="adsbygoogle"
       data-ad-client="ca-pub-2732222824974793"
