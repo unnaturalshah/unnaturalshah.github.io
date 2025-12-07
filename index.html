@@ -20,20 +20,29 @@
     left: 0;
     width: 100%;
     background: #fff;
-    padding: 12px 10px;
+    /* Reduced padding significantly */
+    padding: 4px 10px; 
     text-align: center;
     border-bottom: 2px solid #ccc;
     z-index: 999999; 
+    /* Box-sizing ensures padding doesn't add to calculated height unexpectedly */
+    box-sizing: border-box; 
+    height: 50px; /* Explicitly targeting 50px height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   /* Style for the submit button */
   .pp-WJJ6B5X32N3RN {
     font-family: sans-serif;
-    font-size: 20px;
+    /* Reduced font size */
+    font-size: 14px; 
     font-weight: bold;
     text-decoration: none;
     color: #000;
-    padding: 8px 16px; 
+    /* Reduced padding */
+    padding: 3px 10px; 
     cursor: pointer;
     border: 1px solid #000; 
     background-color: #f8f8f8;
@@ -42,11 +51,12 @@
   /* --- Main Content Area (Iframe) --- */
   #app-frame {
     position: fixed;
-    top: 100px; 
+    /* CHANGED: Reduced from 100px to 50px */
+    top: 50px; 
     left: 0;
     width: 100vw;
-    /* CHANGED: Adjusted to 100px so it fills the rest of the screen */
-    height: calc(100vh - 100px); 
+    /* CHANGED: Calculated based on new 50px offset */
+    height: calc(100vh - 50px); 
     border: none;
     z-index: 1; 
 
@@ -54,19 +64,23 @@
     transform: scale(1.0);
     transform-origin: top left;
     overflow: hidden; 
-
   }
-   
-   
+    
+    
 </style>
 </head>
 <body>
 
 <div id="top-bar-container">
-  <form action="https://www.paypal.com/ncp/payment/WJJ6B5X32N3RN" method="post" target="_blank" style="display:inline-grid;justify-items:center;align-content:start;gap:0.5rem;">
+  <form action="https://www.paypal.com/ncp/payment/WJJ6B5X32N3RN" method="post" target="_blank" style="display:inline-flex; align-items:center; gap:0.5rem;">
     <input class="pp-WJJ6B5X32N3RN" type="submit" value="Show Support" />
-    <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" />
-    <section style="font-size: 0.75rem;"> Powered by <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.875rem;vertical-align:middle;"/></section>
+    
+    <img src="https://www.paypalobjects.com/images/Debit_Credit_APM.svg" alt="cards" style="height: 20px;" />
+    
+    <section style="font-size: 0.65rem; display: flex; align-items: center;"> 
+      Powered by 
+      <img src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg" alt="paypal" style="height:0.75rem; margin-left:4px;"/>
+    </section>
   </form>
 </div>
 
